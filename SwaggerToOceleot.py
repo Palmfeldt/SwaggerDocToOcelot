@@ -25,7 +25,7 @@ def convert_swagger_to_ocelot(swagger_path, ocelot_path, input_address):
 				"UpstreamPathTemplate": path,
 				"UpstreamHttpMethod": [method.upper()],
 				"DownstreamHostAndPorts": [
-					{"Host": address, "Port": port}
+					{"Host": address, "Port": int(port)}
 				]
 			}
 			routes.append(route)
@@ -45,3 +45,4 @@ if __name__ == "__main__":
 		print("Usage: python swaggerToOceleot.py <swagger.json> <ocelot.json> <address:port>")
 		sys.exit(1)
 	convert_swagger_to_ocelot(sys.argv[1], sys.argv[2], sys.argv[3])
+
